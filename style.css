@@ -1,1 +1,157 @@
-/* Add your CSS here */
+/* --- General Styles for body and header to set the stage --- */
+body {
+    margin: 0;
+    font-family: sans-serif; /* A clean, modern font */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #000; /* Dark background for a sleek look */
+    color: #ffffff; /* White text for contrast */
+    text-align: center; /* Center all content */
+    padding: 6rem 2rem; /* Ample padding for a "hero" feel */
+    min-height: 100vh; /* Make the header take up the full viewport height */
+    display: flex; /* Use flexbox to easily center content */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    position: relative; /* Set header as the positioning context for the logo */
+}
+
+/* --- Styling the inner div to control width --- */
+header div {
+    max-width: 800px; /* Limit the width of the content for readability */
+    margin: 0 auto; /* Center the content block */
+}
+
+/* --- Styling the logo and its container --- */
+header .logo-container {
+    position: absolute; /* Position the logo container absolutely */
+    top: 2rem; /* Align to the top with some padding */
+    left: 2rem; /* Align to the left with some padding */
+}
+
+header img {
+    height: 50px; /* Resize the Intel SVG logo */
+    margin-bottom: 0; /* Remove the bottom margin, it's not needed here */
+}
+
+/* --- Styling the headings and paragraph --- */
+header h1 {
+    font-size: clamp(1.8rem, 4.5vw, 3.5rem); /* Slightly decreased font size */
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #ffffff; /* Default color of the h1 text */
+    transition: color 0.3s ease, font-size 0.3s ease; /* Add transition for a smooth hover effect */
+    margin-top: -20px; /* Move the h1 element up by 20px */
+    position: relative; /* Needed for the pseudo-element to be positioned relative to the h1 */
+}
+
+/* Add horizontal line after h1 */
+header h1::after {
+    content: '';
+    display: block;
+    width: 340px;
+    height: 5px;
+    background-color: #0071C5; /* Light blue color for the line */
+    margin: 1rem auto 0;
+}
+
+/* --- Hover effect for the main heading --- */
+header h1:hover {
+    color: #0071C5; /* Change color to a light blue on hover */
+    font-size: clamp(2rem, 5vw, 4rem); /* Slightly increase font size on hover */
+}
+
+header p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 600px; /* Make the paragraph a bit narrower for better line length */
+    margin: 0 auto;
+    transition: color 0.3s ease, font-weight 0.3s ease, font-size 0.3s ease; /* Add a smooth transition */
+    margin-top: 50px; /* Increased the top margin of the paragraph */
+}
+
+/* --- Hover effect for the paragraph text --- */
+header p:hover {
+    color: #0071C5; /* Change color to a light blue */
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Increase font size */
+    font-weight: bold; /* Make the text bold */
+}
+
+/* --- Styling for the timeline section --- */
+section {
+    display: flex; /* Flex container */
+    flex-wrap: wrap; /* Allow wrapping to new lines */
+    justify-content: center; /* Center cards */
+    gap: 2rem;
+    padding: 2rem;
+    background-image: linear-gradient(to bottom right, #8dd5ff, #0071C5);
+}
+
+/* --- Styling for each individual card --- */
+section div {
+    background-color: #ffffff; /* Keep the cards as a solid white */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Styling for images inside the cards --- */
+section div img {
+    width: 100%; /* Makes the image fill the width of the card */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 5px; /* Adds a slight border-radius to match the card style */
+    margin-bottom: 1rem; /* Adds space between the image and the paragraph text */
+}
+
+/* === Force Cards 5 & 6 to start on a new row below Card 4 === */
+section div:nth-of-type(4) {
+    flex-basis: 100%; /* Makes Card 4 take the full row width */
+    width: 100%; /* Ensures it spans the container width */
+}
+
+/* --- Hover effect for the cards --- */
+section div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Styling for card headings and text --- */
+section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+section h3 {
+    font-size: 1.25rem;
+    color: #0071C5;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+section p {
+    font-size: 1rem;
+    color: #666;
+    display: none; /* Hides the paragraph text by default */
+}
+
+/* Show the paragraph when hovering over the card */
+section div:hover p {
+    display: block; /* Makes the paragraph visible on hover */
+}
+
+/* --- Styling for the "Scroll" text --- */
+body > p {
+    text-align: center;
+    margin-top: 2rem;
+    font-style: italic;
+    color: #888;
+}
+
+/* Reapply default padding for cards without images */
+section div:nth-of-type(n+5) {
+    padding-top: 2rem; /* Re-establish top padding for the cards without images */
+}
